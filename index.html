@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--This demo and the related code are copyright Brian Rollins (brollins@yahoo.com)-->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>CLog Example</title>
+		<link type="text/css" rel="stylesheet" href="clog.min.css"/>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="clog.min.js"></script><!-- Minified CLog Library -->
+		<!--script src="clog.js"></script--><!-- Uncompress Clog Library -->
+		<script>
+		function fxn() {
+			clog.fxn(arguments.callee.name,arguments);
+		}
+		function theVal() {
+			currentTime = new Date();
+			clog.val("currentTime");
+		}
+		function comboFxn(param) {
+			clog.fxn(arguments.callee.name,arguments);
+			clog.count("Number of times Combo has been clicked:");
+			clog.warn("ComboFxn was passed " + param);
+			clog.error("I don't know what to do with " + param);
+			clog.info("The combo function is done.");
+		}
+		function changeLogLevel(newLogLevel){
+			logLevel = newLogLevel;
+			$("#currentLogLevel").html("Current Log Level is " + newLogLevel);
+		}
+		</script>
+	</head>
+	<body>
+		<h1>CLog Demo</h1>
+		<p>Welcome to CLOG! CLog (short for Console Log), is a JS logging function that works with the <a href="http://getfirebug.com/" target="_blank">FireBug API</a> to see logs in a vivid, clear way.
+		Open FireBug and make sure your console is open before running this demo. Use the error log levels to change how 'deep' you want the messaging to go.
+			<ol start="0">
+			<li>No logging</li>
+			<li>Errors only</li>
+			<li>Errors and Warnings</li>
+			<li>All messages are logged (counts are diabled)</li>
+			<li>Full functionality</li>
+			</ol>
+
+			<a href="clog.js" target="_blank">[View Clog.JS]</a>
+			</p>
+		<div id="currentLogLevel">Current Log Level is X</div>
+		<div class="buttonRow">
+			<input type="button" class="levelBtn" onClick="changeLogLevel(0);" value="Log Level 0"/>
+			<input type="button" class="levelBtn" onClick="changeLogLevel(1);" value="Log Level 1"/>
+			<input type="button" class="levelBtn" onClick="changeLogLevel(2);" value="Log Level 2"/>
+			<input type="button" class="levelBtn" onClick="changeLogLevel(3);" value="Log Level 3"/>
+			<input type="button" class="levelBtn" onClick="changeLogLevel(4);" value="Log Level 4"/>
+		</div>
+		<div class="buttonRow">
+		<input type="button" class="fxnBtn" onClick="clog.info('Button clicked.');" value="Info" id="infoBtn"/>
+		<input type="button" class="fxnBtn" onClick="fxn();" value="Fxn (No Params)" id="fxnBtn"/>
+		<input type="button" class="fxnBtn" onClick="fxn('1st Param', '2nd Param', '3rd Param');" value="Fxn with Params" id="fxnBtn2"/>
+		<input type="button" class="fxnBtn" onClick="theVal();" value="Val" id="valBtn"/>
+		<input type="button" class="fxnBtn" onClick="clog.error('Something broke!');" value="Error" id="errorBtn"/>
+		<input type="button" class="fxnBtn" onClick="clog.warn('Are you sure you want to do that?');" value="Warning" id="warnBtn"/>
+		<input type="button" class="fxnBtn" onClick="clog.clear();" value="Clear" id="clearBtn"/>
+		<input type="button" class="fxnBtn" onClick="clog.count('testCounter');" value="Count" id="countBtn"/>
+		</div>
+
+		<input type="text" name="comboVal" id="comboVal" value="Some Value Here"/> <input class="comboBtn" type="button" value="Combo" onClick="comboFxn( document.getElementById('comboVal').value )"/>
+		<script>
+			//Init log level.
+			changeLogLevel(logLevel);
+		</script>
+	</body>
+</html>
