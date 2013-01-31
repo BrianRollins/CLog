@@ -1,8 +1,8 @@
-//Copyright 2012 Brian Rollins (brollins at yahoo.com)
+//Copyright 2013 Brian Rollins (brollins at yahoo.com)
 //Released under the Creative Commons 3.0 License
 //This is a work-in-progress. If you have any suggestions or additions, please contact the author.
 
-var logLevel = 4; //Set your log leve (0 - 4).
+var logLevel = 4; //Set your log level (0 - 4).
 /*
 ** Log Levels:
 ** 0 = No logging
