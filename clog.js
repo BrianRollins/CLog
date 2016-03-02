@@ -1,7 +1,9 @@
-//Copyright 2013 Brian Rollins (brollins at yahoo.com)
-//Released under the Creative Commons 3.0 License
-//This is a work-in-progress. If you have any suggestions or additions, please contact the author.
-
+/*
+Copyright 2013-2016 Brian Rollins (me  at brianrollins.com)
+This is a work-in-progress. If you have any suggestions or additions, please contact the author.
+Released under a Creative Commons Attribution 4.0 International License
+http://creativecommons.org/licenses/by/4.0/
+*/
 var logLevel = 4; //Set your log level (0 - 4).
 /*
 ** Log Levels:
@@ -13,7 +15,7 @@ var logLevel = 4; //Set your log level (0 - 4).
 */
 
 //Init Styles
-var mStyle = "color:#000;font-size:12px;" //Master Style
+var mStyle = "color:#000;font-size:12px;"; //Master Style
 /*
 ** Define your style with styler(color, background-color, font-size)
 ** Colors can be named colors or hex values (black or #00000 or #000 will work).
@@ -28,11 +30,11 @@ var infoStyle = mStyle+styler('','#DCDCDC',''),
 //Style builder.
 function styler(color, bg, size) {
 	s = "";
-	s += (color!='') ? "color:"+color+";" : "";
-	s += (bg!='') ? "background-color:"+bg+";" : "";
-	s += (size!='') ? "font-size:"+size+";" : "";	
+	s += (color!=='') ? "color:"+color+";" : "";
+	s += (bg!=='') ? "background-color:"+bg+";" : "";
+	s += (size!=='') ? "font-size:"+size+";" : "";
 	return s;
-}	
+}
 
 //CLog itself.
 var clog = {
@@ -45,13 +47,13 @@ var clog = {
 			len = passedArgs.length;
 			for(i=0;i<len;i++){
 				args += passedArgs[i];
-				args += (i!=len-1) ? ", " : "";	
+				args += (i!=len-1) ? ", " : "";
 			}
 			console.log("%cFunction: "+theFxn+"("+args+")", fxnStyle);
 		}
 	},
 	val: function(l){
-		if(logLevel >= 3){console.log("%c"+l + " = " + eval(l), valStyle);}
+		if(logLevel >= 3){console.log("%c"+l + " = " + eval(l), valStyle);} //Todo: Get rid of eval.
 	},
 	error: function(p){
 		if(logLevel >= 1){console.error("%cError: "+p, errorStyle);}
@@ -65,4 +67,4 @@ var clog = {
 	count: function(x) {
 		if(logLevel >=4) {console.count(x);}
 	}
-};		
+};
