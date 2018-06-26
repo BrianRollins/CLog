@@ -1,5 +1,5 @@
 /*
-Copyright 2013-2016 Brian Rollins (me  at brianrollins.com)
+Copyright 2013-2018 Brian Rollins (me at brianrollins.com)
 This is a work-in-progress. If you have any suggestions or additions, please contact the author.
 Released under a Creative Commons Attribution 4.0 International License
 http://creativecommons.org/licenses/by/4.0/
