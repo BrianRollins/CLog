@@ -20,6 +20,7 @@ var mStyle = "color:#000;font-size:12px;"; //Master Style
 ** Define your style with styler(color, background-color, font-size)
 ** Colors can be named colors or hex values (black or #00000 or #000 will work).
 ** Font sizes need a unit of measure (px, em, pt, etc).
+** Override the styles as you see fit.
 */
 var infoStyle = mStyle+styler('','#DCDCDC',''),
 	fxnStyle = mStyle+styler('','#8FBC8F',''),
